@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .sent {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .sent img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .user-msg {
+            background-color: #e0e0e0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="messages" id="messages"></div>
+    <form id="messageForm">
+        <input type="text" id="userInput" placeholder="Type your message">
+        <button type="button" onclick="sendMessage()">Send</button>
+    </form>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById('userInput').value;
+
+            if (userInput.trim() !== '') {
+                var messagesDiv = document.getElementById('messages');
+
+                // Create new message container
+                var newMessage = document.createElement('div');
+                newMessage.classList.add('sent');
+
+                // Create image element
+                var imgElement = document.createElement('img');
+                imgElement.src = "/img/user1.png";
+                imgElement.alt = "";
+
+                // Create user message container
+                var userMsgDiv = document.createElement('div');
+                userMsgDiv.classList.add('user-msg');
+
+                // Create paragraph element for the message
+                var messageParagraph = document.createElement('p');
+                messageParagraph.textContent = userInput;
+
+                // Append elements to the DOM
+                userMsgDiv.appendChild(messageParagraph);
+                newMessage.appendChild(imgElement);
+                newMessage.appendChild(userMsgDiv);
+                messagesDiv.appendChild(newMessage);
+
+                // Clear the input field after sending the message
+                document.getElementById('userInput').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

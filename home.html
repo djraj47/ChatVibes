@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-ChatVibes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/emojionearea/3.4.2/emojionearea.css">
+</head>
+
+<body>
+    <div class="chat">
+        <div class="chat-list">
+            <div class="nav">
+                <i class="fa fa-solid fa-bars"></i>
+                <input type="search" id="searchInput" placeholder="search">
+            </div>
+            <div class="user-list">
+                <ul>
+                    <li class="active">
+                        <img src="/img/user1.png" alt="">
+                        <div class="username">
+                            <h3>Raj </h3>
+                            <p>last message</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="/img/users (1).png" alt="">
+                        <div class="username">
+                            <h3>Robin</h3>
+                            <p>last message</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/img/users (6).png" alt="">
+                        <div class="username">
+                            <h3>Prachi</h3>
+                            <p>last message</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/img/users (5).png" alt="">
+                        <div class="username">
+                            <h3>shivani</h3>
+                            <p>last message</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/img/users (2).png" alt="">
+                        <div class="username">
+                            <h3>Vishal</h3>
+                            <p>last message</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="/img/users (3).png" alt="">
+                        <div class="username">
+                            <h3>Ayush</h3>
+                            <p>last message</p>
+                        </div>
+                    </li>
+
+                    <li>
+                        <img src="/img/users (4).png" alt="">
+                        <div class="username">
+                            <h3>Kritika</h3>
+                            <p>last message</p>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <img src="/img/users (7).png" alt="">
+                        <div class="username">
+                            <h3>Amit </h3>
+                            <p>last message</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="send-msg">
+            <div class="msg-body">
+                <div class="user">
+                    <div class="user-img">
+                        <img src="/img/user1.png" alt="" class="user-image">
+                    </div>
+                    <div>
+                        <div class="username">
+                            <h3>Raj kiran</h3>
+                        </div>
+                        <div class="lastseen">
+                            <p>last seen 6 hours ago</p>
+                        </div>
+                    </div>
+                    <div class="searchInput2">
+                        <input type="search" id="searchInput2" placeholder="search messages"></i>
+                        <i class="fa-solid fa-phone"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+
+                <div class="message-section" id="chatMessages">
+                </div>
+
+                <!-- <div class="messages" id="messages">
+                    <div class="received">
+                        <img src="/img/user1.png" alt="">
+                        <div class="user-msg">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, reiciendis?</p>
+                        </div>
+                    </div>
+                    <div class="sent">
+                        <img src="/img/user1.png" alt="">
+                        <div class="user-msg">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, reiciendis?</p>
+                        </div>
+                    </div>
+                    <div class="received">
+                        <img src="/img/user1.png" alt="">
+                        <div class="user-msg">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, reiciendis?</p>
+                        </div>
+                    </div>
+
+                </div> -->
+
+            </div>
+
+            <form id="messageForm">
+                <label for="avatar">
+                    <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" />
+                    <i class="fa-solid fa-paperclip"></i>
+                </label>
+                <input type="text" id="userInput" placeholder="Write a message...">
+                <button onclick="sendMessage()"><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+
+        </div>
+
+    </div>
+
+
+</body>
+<script src="/script/script.js"></script>
+<script>
+    function sendMessage() {
+
+        var userInput = document.getElementById('userInput').value;
+
+        if (userInput.trim() !== '') {
+            var messagesDiv = document.getElementById('messages');
+
+            // Create new message container
+            var newMessage = document.createElement('div');
+            newMessage.classList.add('sent');
+
+            // Create image element
+            var imgElement = document.createElement('img');
+            imgElement.src = "/img/user1.png";
+
+            // Create user message container
+            var userMsgDiv = document.createElement('div');
+            userMsgDiv.classList.add('user-msg');
+
+            // Create paragraph element for the message
+            var messageParagraph = document.createElement('p');
+            messageParagraph.textContent = userInput;
+
+            // Append elements to the DOM
+            userMsgDiv.appendChild(messageParagraph);
+            newMessage.appendChild(imgElement);
+            newMessage.appendChild(userMsgDiv);
+            messagesDiv.appendChild(newMessage);
+
+            // Clear the input field after sending the message
+            document.getElementById('userInput').value = '';
+        }
+
+    }
+    document.getElementById('messageForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+    });
+</script>
+
+</html>

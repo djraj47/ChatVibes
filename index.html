@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatVibe</title>
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="banner">
+        <img src="/img/banner.png">
+    </div>
+    <div class="about">
+        <h3>Welcome to ChatVibe</h3>
+        <button onclick="showlogin()">Start Messaging</button>
+    </div>
+
+    <div class="login">
+        <h3>Your Phone Number</h3>
+        <p>Please confirm your country code and enter your mobile number</p>
+
+        <input type="tel" id="telInput" placeholder="----- -----">
+        <br>
+        <button onclick="checkPhoneNumber()">Login</button>
+    </div>
+</body>
+<script>
+
+    function checkPhoneNumber() {
+        const telInput = document.getElementById('telInput').value;
+        console.log(telInput);
+        if (telInput == '8587975475') {
+            window.location.href = 'home.html';
+        } else {
+            alert('Incorrect phone number');
+        }
+    }
+
+
+    const about = document.querySelector(".about")
+    const login = document.querySelector(".login")
+    function showlogin() {
+        about.style.display = "none";
+        login.style.display = "flex";
+    }
+
+
+
+</script>
+
+</html>
